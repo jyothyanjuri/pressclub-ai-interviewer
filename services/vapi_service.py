@@ -22,23 +22,37 @@ VAPI_API_BASE = "https://api.vapi.ai"
 INTERVIEWER_PROMPT_PATH = "prompts/interviewer.txt"
 PREBUILT_ASSISTANT_ID = "abcbbe84-9859-4182-a77f-ca9370188caa"
 
+# Model presets — select via VAPI_MODEL env var (default: gpt4)
+_MODEL_PRESETS = {
+    "gpt4":   {"provider": "openai",  "model": "gpt-4.1"},
+    "gemini": {"provider": "google",  "model": "gemini-1.5-pro"},
+    "claude": {"provider": "anthropic", "model": "claude-sonnet-4-6"},
+}
+
+
+def _get_model_config(system_prompt: str) -> dict:
+    preset_key = os.environ.get("VAPI_MODEL", "gpt4").lower()
+    preset = _MODEL_PRESETS.get(preset_key, _MODEL_PRESETS["gpt4"])
+    logger.info("Using Vapi model preset: %s (%s / %s)", preset_key, preset["provider"], preset["model"])
+    return {**preset, "systemPrompt": system_prompt, "temperature": 0.7}
+
 
 async def create_vapi_assistant(briefing_doc: dict) -> str:
     """
     Updates the pre-built Vapi assistant with the briefing doc injected into
     the system prompt, then returns its assistant_id for the browser SDK.
+
+    Model is selected via VAPI_MODEL env var:
+      gpt4   → OpenAI gpt-4.1       (default)
+      gemini → Google gemini-1.5-pro
+      claude → Anthropic claude-sonnet-4-6
     """
     api_key = os.environ["VAPI_API_KEY"]
     base_persona = _load_interviewer_prompt()
     system_prompt = _build_system_prompt(base_persona, briefing_doc)
 
     payload = {
-        "model": {
-            "provider": "openai",
-            "model": "gpt-4.1",
-            "systemPrompt": system_prompt,
-            "temperature": 0.7,
-        },
+        "model": _get_model_config(system_prompt),
         "firstMessage": _build_opening(briefing_doc),
         "endCallMessage": "Thank you so much for your time. This has been incredibly helpful. We'll be in touch soon.",
         "endCallPhrases": ["end the interview", "stop the interview"],
@@ -46,11 +60,6 @@ async def create_vapi_assistant(briefing_doc: dict) -> str:
         "silenceTimeoutSeconds": 60,
         "backgroundSound": "off",
         "backchannelingEnabled": True,
-        "stopSpeakingPlan": {
-            "numWords": 0,
-            "voiceSeconds": 0.8,
-            "backoffSeconds": 2.0,
-        },
     }
 
     async with httpx.AsyncClient(timeout=15.0) as client:

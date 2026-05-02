@@ -77,8 +77,30 @@ Each time `/start-interview` is called, the server sends a PATCH request to Vapi
 curl -X PATCH https://api.vapi.ai/assistant/abcbbe84-9859-4182-a77f-ca9370188caa `
   -H "Authorization: Bearer YOUR_VAPI_API_KEY" `
   -H "Content-Type: application/json" `
-  -d '{"serverUrl": "https://YOUR-NGROK-URL.ngrok-free.app/vapi-webhook"}'
+  -d '{"serverUrl": "https://YOUR-NEW-NGROK-URL.ngrok-free.app/vapi-webhook"}'
 ```
+
+### What to do when ngrok URL changes
+
+Every time ngrok restarts it generates a new URL. Steps each session:
+
+1. Start ngrok: `ngrok http 8000`
+2. Copy the new URL from ngrok output (e.g. `https://xxxx-xxxx.ngrok-free.app`)
+3. Run the curl command above with the new URL
+4. Start the server and run the demo
+
+### Avoid this with a static ngrok domain (recommended)
+
+ngrok free tier includes one permanent static domain — the URL never changes so you only set the webhook once.
+
+1. Go to [ngrok dashboard → Domains](https://dashboard.ngrok.com/cloud-edge/domains) and claim your free static domain
+2. Start ngrok with:
+
+```powershell
+ngrok http --domain=your-static-domain.ngrok-free.app 8000
+```
+
+3. Set the webhook URL once (using your static domain) and never update it again
 
 ### Settings tuned during testing
 
