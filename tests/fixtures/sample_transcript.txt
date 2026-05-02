@@ -1,0 +1,57 @@
+Sales Call Transcript — DataSync AI
+Date: April 2026
+Participants: Priya Nair (Founder & CEO), Marcus Webb (PressClub Sales)
+
+---
+
+Marcus: Thanks for making time today Priya. Tell me a bit about what DataSync is building.
+
+Priya: Sure. DataSync is a real-time data synchronization platform specifically for enterprise retail. The problem we're solving is that most large retailers have 8 to 15 different systems — their ERP, their WMS, their e-commerce platform, their in-store POS — and none of them talk to each other in real time. So you get inventory discrepancies, overselling online while shelves are empty, the classic stuff.
+
+Marcus: And how are people solving it today?
+
+Priya: Either they're building custom middleware — which takes 18 months and costs $2-3 million just to build — or they're using legacy ETL tools like Informatica that were built for batch processing. Their fastest sync cycle is 4 hours. We do it in under 2 seconds.
+
+Marcus: Under 2 seconds versus 4 hours — that's a pretty extraordinary claim. Is that across all their systems?
+
+Priya: Yes. We connect directly to the source systems via native APIs and process changes in a streaming model. We've benchmarked against Informatica on a live customer deployment — our median sync latency is 1.4 seconds versus their 3.9 hours.
+
+Marcus: That's a specific number. How did you measure that?
+
+Priya: It was a head-to-head benchmark we ran at one of our customers — a top-10 US grocery chain. They had Informatica running their legacy systems and brought us in for a 90-day pilot on their new e-commerce stack. We instrumented everything and the results were audited by their internal data team.
+
+Marcus: Can you share which grocery chain?
+
+Priya: I can't name them publicly yet, they haven't signed off on a case study. But I can say they're one of the top 10 by revenue in the US, and after the pilot they signed a $1.2M annual contract.
+
+Marcus: Nice. What does your broader customer base look like?
+
+Priya: We have 14 enterprise customers. ARR is just over $8M as of last month. We were at $3.5M a year ago, so we've basically grown 130% year-over-year. Our largest customer is paying $1.8M annually.
+
+Marcus: And you've raised funding?
+
+Priya: We closed our Series A in February — $18M, led by Bessemer. Before that we were bootstrapped from a $2.5M seed we did in early 2024.
+
+Marcus: Bessemer. What's the use of proceeds?
+
+Priya: Primarily hiring — we're going from 22 to 50 people this year. Engineering is most of it. We're also expanding to the UK and Germany in Q3.
+
+Marcus: Tell me about your background. How did you end up building this?
+
+Priya: I spent 8 years at Oracle, the last 4 running the database replication product that powers real-time sync for a lot of Fortune 500s. I saw every data integration problem up close. Then I did 2 years at a mid-sized retailer as their Chief Data Officer, so I lived the customer problem firsthand. I basically built DataSync to solve the exact problem I couldn't solve with Oracle's tooling.
+
+Marcus: That's a pretty rare combination — Oracle database replication expert turned retail CDO.
+
+Priya: Yeah, I think there are maybe 50 people in the world who have done both of those things. I started DataSync specifically because I knew the problem from both sides and I didn't think anyone was going to solve it properly.
+
+Marcus: One more thing — you mentioned 2-second sync. Is there a durability story? What happens when a downstream system goes down?
+
+Priya: Great question. We have a distributed write-ahead log on our side, so changes queue locally and replay automatically. We've had zero data loss events in production across all 14 customers since launch. The legacy batch tools — when they fail, you lose the whole batch. We've never lost a record.
+
+Marcus: That's a strong story. Anything else you want to make sure I understand about what you're building?
+
+Priya: I think the key thing is this isn't a tool for data engineers. Our interface is built for business operations teams. You set up a sync in about 20 minutes. Legacy tools require 6-month implementation projects. That's the real unlock for enterprise adoption — we removed the implementation bottleneck.
+
+Marcus: Perfect. I think there's definitely something here. We'll follow up about next steps.
+
+Priya: Great, looking forward to it.

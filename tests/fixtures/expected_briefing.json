@@ -1,0 +1,88 @@
+{
+  "company_name": "DataSync AI",
+  "founder_name": "Priya Nair",
+  "known_facts": [
+    "DataSync AI is a real-time data synchronization platform for enterprise retail",
+    "Median sync latency is 1.4 seconds versus Informatica's 3.9 hours",
+    "14 enterprise customers as of April 2026",
+    "ARR is $8M, up from $3.5M a year ago (130% YoY growth)",
+    "Largest customer pays $1.8M annually",
+    "Closed $18M Series A in February 2026, led by Bessemer Venture Partners",
+    "Previously raised $2.5M seed round in early 2024",
+    "Priya Nair spent 8 years at Oracle, including 4 years running the database replication product",
+    "Priya served as Chief Data Officer at a mid-sized retailer for 2 years",
+    "Team growing from 22 to 50 people in 2026",
+    "Expanding to UK and Germany in Q3 2026"
+  ],
+  "hypothesized_angles": [
+    {
+      "angle_type": "funding",
+      "description": "$18M Series A led by Bessemer — above TechCrunch threshold for B2B SaaS",
+      "confidence": "high",
+      "evidence": "Founder confirmed $18M Series A in February 2026, led by Bessemer"
+    },
+    {
+      "angle_type": "product_world_best",
+      "description": "1.4s sync latency vs 3.9-hour industry standard — 10,000x improvement — audited benchmark",
+      "confidence": "high",
+      "evidence": "Head-to-head benchmark vs Informatica at a top-10 US grocery chain, audited by their data team"
+    },
+    {
+      "angle_type": "traction_revenue",
+      "description": "$8M ARR milestone — strong for a 2-year-old B2B SaaS company",
+      "confidence": "high",
+      "evidence": "Founder stated ARR just crossed $8M as of April 2026"
+    },
+    {
+      "angle_type": "traction_growth",
+      "description": "130% YoY ARR growth from $3.5M to $8M",
+      "confidence": "high",
+      "evidence": "Founder: 'we were at $3.5M a year ago, so we've basically grown 130% year-over-year'"
+    },
+    {
+      "angle_type": "founder_uniqueness",
+      "description": "Only founder in the space with both Oracle replication engineering and retail CDO experience",
+      "confidence": "high",
+      "evidence": "8 years at Oracle (4 on database replication) + 2 years as retail CDO — 'maybe 50 people in the world who have done both'"
+    },
+    {
+      "angle_type": "traction_quality",
+      "description": "Top-10 US grocery chain as anchor customer paying $1.2M annual contract",
+      "confidence": "medium",
+      "evidence": "Founder confirmed customer is top-10 US grocery chain by revenue, $1.2M ACV — name not yet public"
+    }
+  ],
+  "priority_questions": [
+    {
+      "question": "You mentioned the $18M Series A was led by Bessemer — can you tell me who else participated and what the total raised to date is?",
+      "target_signal": "funding",
+      "follow_up_if_vague": "Even just the total raised since founding would help — seed plus Series A?"
+    },
+    {
+      "question": "The 1.4-second versus 3.9-hour benchmark is extraordinary. Can you share the methodology? Was this published or is it available for us to reference?",
+      "target_signal": "product_world_best",
+      "follow_up_if_vague": "Would you be able to share the benchmark report, even under NDA, so we have something to cite?"
+    },
+    {
+      "question": "You said there are maybe 50 people in the world who've done both Oracle replication and retail CDO roles. How did that unique combination directly shape the product architecture?",
+      "target_signal": "founder_uniqueness",
+      "follow_up_if_vague": "Can you give me a specific example of something you built into the product that someone without your background wouldn't have thought to build?"
+    },
+    {
+      "question": "On the top-10 grocery chain — is there any chance they'd be willing to be referenced, even anonymously with their size and geography?",
+      "target_signal": "traction_quality",
+      "follow_up_if_vague": "Even 'a top-10 US grocery retailer' as an attribution would significantly strengthen the story."
+    },
+    {
+      "question": "You mentioned zero data loss events across all 14 customers since launch. How long have you been in production?",
+      "target_signal": "product_world_best",
+      "follow_up_if_vague": "Is there a total data volume or transaction count you can cite to contextualize that zero-loss claim?"
+    }
+  ],
+  "interview_strategy": "Lead with the funding announcement as the news hook, then pivot to the benchmark claim as the differentiator story. Push hard for the anchor customer name or at least permission to describe them. The founder's background story is a strong human angle — make sure to get the Oracle-to-retail-CDO narrative in her own words.",
+  "avoid_topics": [
+    "Basic product description (already understood)",
+    "Team size (already confirmed: 22 → 50)",
+    "Geographic expansion plan (already confirmed: UK + Germany Q3)"
+  ]
+}

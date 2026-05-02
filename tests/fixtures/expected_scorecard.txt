@@ -1,0 +1,22 @@
+## Newsworthy Scorecard
+
+- **Funding**: `confirmed` — "We closed our Series A in February — $18M, led by Bessemer."
+- **Product — World-First**: `needs follow-up` — Streaming sync architecture claim is unique but no "only in the world" citation found in transcript.
+- **Product — World-Best**: `confirmed` — "Our median sync latency is 1.4 seconds versus their 3.9 hours" (audited benchmark vs Informatica at top-10 US grocery chain).
+- **Traction — Revenue**: `confirmed` — "ARR is just over $8M as of last month."
+- **Traction — Growth**: `confirmed` — "We were at $3.5M a year ago, so we've basically grown 130% year-over-year."
+- **Traction — Customer Quality**: `needs follow-up` — Top-10 US grocery chain confirmed but unnamed. $1.2M ACV stated. Name clearance needed for publication.
+- **Founder Uniqueness**: `confirmed` — 8 years at Oracle (4 on database replication product) + 2 years as retail CDO. "Maybe 50 people in the world who have done both of those things."
+- **Insight — Contrarian**: `confirmed` — "Legacy tools require 6-month implementation projects. We removed the implementation bottleneck — 20-minute setup."
+
+## Recommended Pitch Angle
+
+**Primary:** Series A funding announcement with product benchmark hook.
+- "$18M Series A, Bessemer-led" satisfies TechCrunch B2B SaaS threshold ($10M+).
+- Headline data point: "1.4-second sync vs 3.9-hour industry standard — 10,000x improvement, audited by customer data team."
+- Supporting traction: $8M ARR, 130% YoY growth, 14 enterprise customers including a top-10 US grocery retailer.
+
+**Secondary:** Founder uniqueness angle (standalone profile).
+- Ex-Oracle database replication lead turned retail CDO builds the tool she couldn't buy.
+- "50 people in the world" quote is strong.
+- Best used if primary angle runs in a publication that already covered the funding round.
