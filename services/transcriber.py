@@ -42,6 +42,7 @@ async def transcribe(audio_bytes: bytes, suffix: str) -> str:
                 model="whisper-1",
                 file=f,
                 response_format="text",
+                language="zh",
             )
     finally:
         import os as _os
@@ -54,6 +55,12 @@ async def transcribe(audio_bytes: bytes, suffix: str) -> str:
 
 
 def read_txt(path: str) -> str:
-    """Read a .txt file directly."""
+    """Read a .txt file, auto-detecting encoding (UTF-8, GBK, Big5)."""
+    for enc in ("utf-8", "gb18030", "big5"):
+        try:
+            with open(path, "r", encoding=enc) as f:
+                return f.read()
+        except UnicodeDecodeError:
+            continue
     with open(path, "r", encoding="utf-8", errors="replace") as f:
         return f.read()

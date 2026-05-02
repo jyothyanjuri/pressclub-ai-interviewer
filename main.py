@@ -41,6 +41,15 @@ app.add_middleware(
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
+def _decode_text(raw_bytes: bytes) -> str:
+    for enc in ("utf-8", "gb18030", "big5"):
+        try:
+            return raw_bytes.decode(enc)
+        except UnicodeDecodeError:
+            continue
+    return raw_bytes.decode("utf-8", errors="replace")
+
+
 # ── Request / Response models ───────────────────────────────────────────────
 
 class StartInterviewRequest(BaseModel):
@@ -79,7 +88,7 @@ async def research(
         raw_bytes = await transcript_file.read()
         suffix = Path(transcript_file.filename).suffix.lower()
         if suffix == ".txt":
-            raw_transcript = raw_bytes.decode("utf-8", errors="replace")
+            raw_transcript = _decode_text(raw_bytes)
         else:
             raw_transcript = await transcribe(raw_bytes, suffix)
     elif transcript_text:
